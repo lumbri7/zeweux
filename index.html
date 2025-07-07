@@ -67,64 +67,63 @@
       font-weight: bold;
     }
 
+    .main a:hover {
+      text-decoration: underline;
+    }
+
     .models {
       display: flex;
       justify-content: center;
-      gap: 50px;
-      margin-top: 40px;
+      gap: 60px;
+      margin-top: 50px;
     }
 
-    .model {
-      width: 120px;
-      height: 220px;
-      position: relative;
+    .classic-model {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       animation: float 4s ease-in-out infinite;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
 
-    .head {
+    .classic-head {
       width: 60px;
       height: 60px;
-      background: #fff;
+      background: #f2d5b6;
       border-radius: 50%;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
-    .shirt {
+    .classic-shirt {
       width: 100px;
       height: 120px;
-      background: linear-gradient(to right, #00f0ff, #0077cc);
-      border-radius: 20px;
-      position: absolute;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+      background: #3498db;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .classic-skirt {
+      width: 100px;
+      height: 120px;
+      background: #e74c3c;
+      border-radius: 8px;
+      margin-top: 10px;
     }
 
     .legs {
-      width: 20px;
-      height: 60px;
-      background: #333;
-      position: absolute;
-      top: 180px;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
-      gap: 20px;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     .leg {
       width: 20px;
       height: 60px;
       background: #333;
+      border-radius: 4px;
     }
 
     footer {
@@ -148,20 +147,20 @@
     <p>🤝 I'm looking for someone to join me as a partner in this stylish journey. Let's build it together!</p>
 
     <div class="models">
-      <!-- Boy -->
-      <div class="model">
-        <div class="head"></div>
-        <div class="shirt"></div>
+      <!-- Classic Boy -->
+      <div class="classic-model">
+        <div class="classic-head"></div>
+        <div class="classic-shirt"></div>
         <div class="legs">
           <div class="leg"></div>
           <div class="leg"></div>
         </div>
       </div>
 
-      <!-- Girl -->
-      <div class="model">
-        <div class="head"></div>
-        <div class="shirt" style="border-radius: 60% 60% 40% 40%; background: linear-gradient(to right, #ff70a6, #ff0099);"></div>
+      <!-- Classic Girl -->
+      <div class="classic-model">
+        <div class="classic-head" style="background: #f8c1c1;"></div>
+        <div class="classic-skirt"></div>
         <div class="legs">
           <div class="leg"></div>
           <div class="leg"></div>
