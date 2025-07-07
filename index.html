@@ -2,133 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZEWEUX - Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZEWEUX — Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #000000);
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
       background-size: 400% 400%;
-      animation: gradient 12s ease infinite;
-      color: #fff;
-      overflow-x: hidden;
+      animation: bgMove 12s ease infinite;
+      color: #ffffff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    @keyframes gradient {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header, footer {
-      text-align: center;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
+      text-align: center;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 10px rgba(0,255,255,0.1);
     }
 
     header h1 {
-      font-family: 'Orbitron', sans-serif;
       font-size: 2rem;
+      font-weight: 700;
       color: #00f0ff;
-      text-shadow: 0 0 10px #00f0ff;
+      text-shadow: 0 0 15px #00f0ff88;
     }
 
     .main {
-      min-height: 80vh;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px 20px;
+      padding: 30px;
     }
 
     .main h2 {
-      font-size: 2.5rem;
-      color: #ffffff;
-      text-shadow: 0 0 10px #0ff;
+      font-size: 2.8rem;
+      font-weight: 700;
       margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #ffffff;
     }
 
     .main p {
       font-size: 1.1rem;
-      margin: 10px 0;
-      max-width: 700px;
+      max-width: 600px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+      color: #d6e6f2;
     }
 
     .main a {
       color: #00f0ff;
+      font-weight: 600;
       text-decoration: none;
-      font-weight: bold;
     }
 
     .main a:hover {
       text-decoration: underline;
     }
 
-    .models {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 50px;
-    }
-
-    .classic-model {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .classic-head {
-      width: 60px;
-      height: 60px;
-      background: #f2d5b6;
-      border-radius: 50%;
-    }
-
-    .classic-shirt {
-      width: 100px;
-      height: 120px;
-      background: #3498db;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .classic-skirt {
-      width: 100px;
-      height: 120px;
-      background: #e74c3c;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .legs {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .leg {
-      width: 20px;
-      height: 60px;
-      background: #333;
-      border-radius: 4px;
-    }
-
     footer {
       font-size: 0.9rem;
-      color: #ccc;
+      color: #aaa;
     }
   </style>
 </head>
@@ -138,35 +88,12 @@
   </header>
 
   <div class="main">
-    <h2>🚧 Coming Soon 🚧</h2>
-    <p>We're designing a futuristic fashion experience at <strong>ZEWEUX</strong> – powered by creativity, tech, and style.</p>
+    <h2>Coming Soon</h2>
+    <p>We're stitching together the future of fashion. Stay tuned as <strong>ZEWEUX</strong> prepares to launch a bold and minimal T-shirt experience.</p>
     <p>
-      📧 Email: <a href="mailto:contact@zeweux.com">contact@zeweux.com</a><br>
-      📸 Instagram: <a href="https://instagram.com/lumbri_nitin" target="_blank">@lumbri_nitin</a>
+      📧 <a href="mailto:contact@zeweux.com">contact@zeweux.com</a> <br>
+      📸 <a href="https://instagram.com/lumbri_nitin" target="_blank">@lumbri_nitin</a>
     </p>
-    <p>🤝 I'm looking for someone to join me as a partner in this stylish journey. Let's build it together!</p>
-
-    <div class="models">
-      <!-- Classic Boy -->
-      <div class="classic-model">
-        <div class="classic-head"></div>
-        <div class="classic-shirt"></div>
-        <div class="legs">
-          <div class="leg"></div>
-          <div class="leg"></div>
-        </div>
-      </div>
-
-      <!-- Classic Girl -->
-      <div class="classic-model">
-        <div class="classic-head" style="background: #f8c1c1;"></div>
-        <div class="classic-skirt"></div>
-        <div class="legs">
-          <div class="leg"></div>
-          <div class="leg"></div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <footer>
