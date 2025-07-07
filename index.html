@@ -3,110 +3,175 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zeweux - Coming Soon</title>
+  <title>ZEWEUX - Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body, html {
-      height: 100%;
-      width: 100%;
+    body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #000000);
       background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      animation: gradient 12s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
     }
 
     @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    .content {
-      backdrop-filter: blur(20px);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 40px 30px;
+    header, footer {
       text-align: center;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
-      color: #fff;
-      width: 90%;
-      max-width: 600px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 10px rgba(0,255,255,0.1);
     }
 
-    .emoji {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    h1 {
+    header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2.8rem;
+      font-size: 2rem;
       color: #00f0ff;
+      text-shadow: 0 0 10px #00f0ff;
+    }
+
+    .main {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .main h2 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px #0ff;
       margin-bottom: 20px;
-      text-shadow: 0 0 15px #00f0ff;
     }
 
-    p {
+    .main p {
       font-size: 1.1rem;
-      margin: 12px 0;
-      color: #ddd;
+      margin: 10px 0;
+      max-width: 700px;
     }
 
-    a {
+    .main a {
       color: #00f0ff;
       text-decoration: none;
       font-weight: bold;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .models {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 40px;
     }
 
-    .partnership {
-      margin-top: 25px;
-      font-size: 1rem;
-      color: #ffcfff;
-      font-weight: 600;
+    .model {
+      width: 120px;
+      height: 220px;
+      position: relative;
+      animation: float 4s ease-in-out infinite;
     }
 
-    /* Neon glow border effect */
-    .content::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: #00f0ff;
-      opacity: 0.15;
-      filter: blur(100px);
-      z-index: -1;
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .head {
+      width: 60px;
+      height: 60px;
+      background: #fff;
       border-radius: 50%;
-      top: 50%;
+      position: absolute;
+      top: 0;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
+    }
+
+    .shirt {
+      width: 100px;
+      height: 120px;
+      background: linear-gradient(to right, #00f0ff, #0077cc);
+      border-radius: 20px;
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .legs {
+      width: 20px;
+      height: 60px;
+      background: #333;
+      position: absolute;
+      top: 180px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+
+    .leg {
+      width: 20px;
+      height: 60px;
+      background: #333;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <div class="emoji">🚧</div>
-    <h1>COMING SOON</h1>
-    <p>We’re building something futuristic at <strong>Zeweux</strong> 🚀</p>
+  <header>
+    <h1>ZEWEUX</h1>
+  </header>
+
+  <div class="main">
+    <h2>🚧 Coming Soon 🚧</h2>
+    <p>We're designing a futuristic fashion experience at <strong>ZEWEUX</strong> – powered by creativity, tech, and style.</p>
     <p>
       📧 Email: <a href="mailto:contact@zeweux.com">contact@zeweux.com</a><br>
       📸 Instagram: <a href="https://instagram.com/lumbri_nitin" target="_blank">@lumbri_nitin</a>
     </p>
-    <p class="partnership">🤝 Looking for a boy to join me as a partner in this exciting journey!</p>
+    <p>🤝 I'm looking for someone to join me as a partner in this stylish journey. Let's build it together!</p>
+
+    <div class="models">
+      <!-- Boy -->
+      <div class="model">
+        <div class="head"></div>
+        <div class="shirt"></div>
+        <div class="legs">
+          <div class="leg"></div>
+          <div class="leg"></div>
+        </div>
+      </div>
+
+      <!-- Girl -->
+      <div class="model">
+        <div class="head"></div>
+        <div class="shirt" style="border-radius: 60% 60% 40% 40%; background: linear-gradient(to right, #ff70a6, #ff0099);"></div>
+        <div class="legs">
+          <div class="leg"></div>
+          <div class="leg"></div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <footer>
+    &copy; 2025 ZEWEUX. All rights reserved.
+  </footer>
 </body>
 </html>
