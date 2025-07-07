@@ -4,40 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZEWEUX — Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Outfit', sans-serif;
-      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, #ff6ec4, #7873f5, #42e695, #f9d423);
       background-size: 400% 400%;
-      animation: bgMove 12s ease infinite;
-      color: #ffffff;
+      animation: gradientMove 12s ease infinite;
       height: 100vh;
+      color: #fff;
       display: flex;
       flex-direction: column;
     }
 
-    @keyframes bgMove {
+    @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
     header, footer {
-      padding: 20px;
       text-align: center;
-      letter-spacing: 1px;
-      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
     }
 
-    header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #00f0ff;
-      text-shadow: 0 0 15px #00f0ff88;
+    header {
+      font-size: 1.5rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px #fff;
     }
 
     .main {
@@ -47,52 +52,54 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
     }
 
-    .main h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
+    .main h1 {
+      font-size: 3rem;
       margin-bottom: 20px;
       text-transform: uppercase;
       color: #ffffff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
 
     .main p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 15px;
-      line-height: 1.6;
-      color: #d6e6f2;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 12px 0;
+      line-height: 1.7;
+      color: #f0f0f0;
     }
 
     .main a {
-      color: #00f0ff;
+      color: #ffffff;
       font-weight: 600;
-      text-decoration: none;
-    }
-
-    .main a:hover {
       text-decoration: underline;
     }
 
     footer {
       font-size: 0.9rem;
-      color: #aaa;
+      color: #f5f5f5;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>ZEWEUX</h1>
+    ZEWEUX
   </header>
 
   <div class="main">
-    <h2>Coming Soon</h2>
-    <p>We're stitching together the future of fashion. Stay tuned as <strong>ZEWEUX</strong> prepares to launch a bold and minimal T-shirt experience.</p>
+    <h1>Coming Soon</h1>
     <p>
-      📧 <a href="mailto:contact@zeweux.com">contact@zeweux.com</a> <br>
+      Fashion is evolving, and so are we.<br>
+      <strong>ZEWEUX</strong> — A new-age clothing brand is launching soon.
+    </p>
+    <p>
+      📧 <a href="mailto:contact@zeweux.com">contact@zeweux.com</a><br>
       📸 <a href="https://instagram.com/lumbri_nitin" target="_blank">@lumbri_nitin</a>
+    </p>
+    <p>
+      🤝 Looking for a passionate partner to grow this brand together.
     </p>
   </div>
 
