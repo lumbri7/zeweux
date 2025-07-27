@@ -1,54 +1,154 @@
-/* Keep all previous styles same ... */
-
-/* Tagline just below Coming Soon */
-.tagline {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #ffdaff;
-  animation: fadeIn 2.5s ease;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Vision section */
-.vision {
-  margin-top: 40px;
-  text-align: center;
-  background: rgba(255,255,255,0.08);
-  border-radius: 12px;
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  background: linear-gradient(120deg, #1e0137, #030b4b, #470146);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
-  animation: fadeIn 3s ease;
+  position: relative;
 }
-.vision h3 {
-  color: #ffffff;
-  margin-bottom: 10px;
+
+/* Animate background gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glowing orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: float 20s infinite ease-in-out alternate;
+}
+.orb1 {
+  width: 400px; height: 400px;
+  background: rgba(255,0,150,0.7);
+  top: -100px; left: -100px;
+  animation-delay: 0s;
+}
+.orb2 {
+  width: 300px; height: 300px;
+  background: rgba(0,200,255,0.6);
+  bottom: -50px; right: -100px;
+  animation-delay: 5s;
+}
+.orb3 {
+  width: 250px; height: 250px;
+  background: rgba(150,255,200,0.5);
+  top: 50%; left: 60%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(60px, -60px) scale(1.2); }
+}
+
+/* Container with glass effect */
+.container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 650px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(255,255,255,0.15);
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: 6px;
   font-weight: 600;
-  font-size: 1.4rem;
   background: linear-gradient(to right, #ff7bf3, #00d4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.vision p {
-  color: #eaeaea;
-  font-size: 1rem;
+  text-transform: uppercase;
+  animation: textGlow 5s ease-in-out infinite alternate;
 }
 
-/* Collaboration call-to-action */
-.cta {
-  margin-top: 40px;
-  padding: 20px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-  animation: pulse 6s ease-in-out infinite;
+@keyframes textGlow {
+  0% { text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+  100% { text-shadow: 0 0 40px rgba(255,255,255,0.8); }
 }
-.cta p {
-  font-size: 1rem;
-  color: #ffffff;
+
+h2 {
+  margin-top: 10px;
+  font-size: 1.8rem;
+  color: #cfcfcf;
 }
-.cta span {
-  display: block;
-  font-weight: bold;
-  margin-top: 8px;
-  color: #ff7bf3;
+
+p {
+  margin-top: 25px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #eaeaea;
+}
+
+.info {
+  margin-top: 35px;
   font-size: 1.1rem;
 }
+
+.info a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info a:hover {
+  color: #ff7bf3;
+}
+
+.highlight {
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffb4ff;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+  50% { box-shadow: 0 0 25px rgba(255,255,255,0.3); }
+  100% { box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  p, .info, .highlight {
+    font-size: 1rem;
+  }
+}
+
