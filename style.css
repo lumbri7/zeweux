@@ -1,146 +1,46 @@
-body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  text-align: center;
-  color: #fff;
-  overflow-x: hidden;
-}
-.section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  transition: opacity 1s ease;
-  padding: 10px;
-}
-.hidden {
-  display: none;
-}
-
-/* Landing */
-.landing {
-  background: linear-gradient(45deg, #ff758c, #ff7eb3);
-}
-.romantic-text {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-.btn {
-  background: #fff;
-  color: #ff4e8e;
-  padding: 12px 24px;
-  border-radius: 20px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.3s;
-  font-size: 1rem;
-}
-.btn:hover {
-  transform: scale(1.05);
-}
-
-/* Wishes */
-.wishes {
-  background: linear-gradient(to bottom, #ff6a88, #ff99ac);
-  position: relative;
-  padding-bottom: 40px;
-}
-.animated-title {
-  font-size: 2rem;
-  animation: glow 1.5s infinite alternate;
-}
-@keyframes glow {
-  from { text-shadow: 0 0 10px #fff, 0 0 20px pink; }
-  to { text-shadow: 0 0 20px #fff, 0 0 40px red; }
-}
-.wish-text {
-  margin: 10px;
-  font-size: 1rem;
-  max-width: 90%;
-}
 .photo-gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
-.photo-frame {
-  width: 28vw;
-  max-width: 120px;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border: 4px solid #fff;
-  border-radius: 10px;
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Cake */
-.cake {
-  width: 80px;
-  height: 50px;
-  background: #ffdab9;
-  border-radius: 0 0 10px 10px;
-  margin: 20px auto;
   position: relative;
-}
-.cake-top {
-  width: 80px;
-  height: 20px;
-  background: #ff7f50;
-  border-radius: 10px 10px 0 0;
-}
-.candle {
-  width: 5px;
-  height: 18px;
-  background: yellow;
-  position: absolute;
-  top: -18px;
-  left: 38px;
-  animation: flicker 1s infinite;
-}
-@keyframes flicker {
-  0%, 100% { background: yellow; }
-  50% { background: orange; }
-}
-.cut-cake {
-  font-size: 1rem;
+  width: 90vw;
+  max-width: 350px;
+  height: 350px;
+  margin: 20px auto;
+  overflow: hidden;
 }
 
-/* Balloons */
-.balloons::before, .balloons::after {
-  content: "🎈 🎉 🎈 🎉 🎈";
+.photo-gallery .frame {
   position: absolute;
-  font-size: 1.5rem;
-  animation: float 5s linear infinite;
-  left: 10px;
-}
-.balloons::after {
-  left: auto;
-  right: 10px;
-}
-@keyframes float {
-  0% { top: 100%; }
-  100% { top: -100%; }
-}
-
-/* Confetti */
-#confetti {
-  position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.8) rotate(-10deg);
+  transition: all 1s ease-in-out;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .animated-title { font-size: 1.8rem; }
-  .wish-text { font-size: 0.9rem; }
-  .btn { font-size: 0.9rem; padding: 10px 20px; }
+.photo-gallery .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Different cute frames */
+.frame1 { border: 6px solid pink; }
+.frame2 { border: 6px dotted red; }
+.frame3 { border: 6px dashed orange; }
+.frame4 { border: 6px double #ff69b4; }
+.frame5 { border: 6px groove #ffb6c1; }
+
+/* Animation visible frame */
+.photo-gallery .frame.active {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+  z-index: 2;
 }
