@@ -3,47 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Tanu 🎉</title>
+<title>Welcome 🎁</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<!-- Landing Page -->
+<div class="landing" id="landingPage">
+    <button class="open-btn" onclick="showSurprise()">✨ Open Surprise ✨</button>
+</div>
+
+<!-- Surprise Page -->
+<div class="surprise hidden" id="surprisePage">
     <h1>💝 Happy Birthday Tanu 💝</h1>
-    <p class="msg">✨ On your special day, wishing you endless happiness, warm hugs, and moments as beautiful as you! 🎂🌹</p>
+    <p class="msg">✨ Wishing you endless happiness, warm hugs, and a magical day! 🎂🌹</p>
     
-    <!-- Images -->
     <div class="images">
-        <img src="https://pngimg.com/uploads/teddy_bear/teddy_bear_PNG61.png" class="teddy" alt="Teddy Bear">
+        <img src="https://pngimg.com/uploads/teddy_bear/teddy_bear_PNG61.png" class="teddy" alt="Teddy">
         <img src="https://pngimg.com/uploads/rose/rose_PNG66657.png" class="rose" alt="Rose">
         <img src="https://pngimg.com/uploads/balloon/balloon_PNG4962.png" class="balloon" alt="Balloon">
         <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" class="cake" alt="Cake">
     </div>
+
+    <div class="fun-zone">
+        <h2>🎉 Let's Celebrate 🎉</h2>
+
+        <div class="cake-container" onclick="cutCake()">
+            <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" alt="Cake" class="cake-cut">
+            <p id="cakeMsg">Tap to cut the cake 🎂</p>
+        </div>
+
+        <div class="balloon-game">
+            <p>🎈 Pop the balloons! Score: <span id="score">0</span></p>
+            <button onclick="startGame()">Start Game</button>
+            <div id="balloonArea"></div>
+        </div>
+
+        <button class="surprise-btn" onclick="showMessage()">🎁 Open Gift</button>
+        <div id="specialMsg" class="hidden">🌟 You make every moment magical! 🌟</div>
+    </div>
 </div>
 
-<!-- Celebration Fun Zone -->
-<div class="fun-zone">
-    <h2>🎉 Let's Celebrate 🎉</h2>
-
-    <!-- Cake Cutting -->
-    <div class="cake-container" onclick="cutCake()">
-        <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" alt="Cake" class="cake-cut">
-        <p id="cakeMsg">Tap to cut the cake 🎂</p>
-    </div>
-
-    <!-- Balloon Pop Game -->
-    <div class="balloon-game">
-        <p>🎈 Pop the balloons! Score: <span id="score">0</span></p>
-        <button onclick="startGame()">Start Game</button>
-        <div id="balloonArea"></div>
-    </div>
-
-    <!-- Surprise Button -->
-    <button class="surprise-btn" onclick="showSurprise()">🎁 Open Surprise</button>
-    <div id="surpriseMsg" class="hidden">🌟 You make every moment magical! 🌟</div>
-</div>
-
-<!-- Floating elements -->
+<!-- Floating hearts & confetti -->
 <div class="heart"></div>
 <div class="heart"></div>
 <div class="heart"></div>
@@ -57,6 +58,11 @@
 <div class="confetti"></div>
 
 <script>
+function showSurprise() {
+    document.getElementById('landingPage').classList.add('hidden');
+    document.getElementById('surprisePage').classList.remove('hidden');
+}
+
 function cutCake() {
     document.querySelector('.cake-cut').classList.add('cut');
     document.getElementById('cakeMsg').innerText = "🎂 Cake is served!";
@@ -80,8 +86,8 @@ function startGame() {
     }
 }
 
-function showSurprise() {
-    document.getElementById('surpriseMsg').classList.remove('hidden');
+function showMessage() {
+    document.getElementById('specialMsg').classList.remove('hidden');
 }
 </script>
 
