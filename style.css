@@ -6,6 +6,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Header */
 .container {
     text-align: center;
     padding: 20px;
@@ -55,29 +56,53 @@ h1 {
 
 .teddy { animation: bounce 3s infinite; }
 .rose { animation: sway 4s infinite; }
-.balloon { animation: floatBalloon 5s infinite ease-in-out; }
+.balloon { animation: floatB 5s infinite ease-in-out; }
 .cake { animation: shake 4s infinite; }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-8deg); } }
+@keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+@keyframes floatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
+
+/* Fun Zone */
+.fun-zone {
+    background: #fff0f5;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    text-align: center;
 }
 
-@keyframes sway {
-    0%, 100% { transform: rotate(0); }
-    50% { transform: rotate(-8deg); }
+.cake-container img {
+    width: 120px;
+    cursor: pointer;
+    transition: transform 0.5s;
 }
 
-@keyframes shake {
-    0%, 100% { transform: rotate(0); }
-    25% { transform: rotate(-6deg); }
-    75% { transform: rotate(6deg); }
+.cake-container img.cut { transform: rotate(-10deg) scale(0.9); }
+
+.balloon-game { margin-top: 15px; }
+
+#balloonArea img.floatBalloon {
+    width: 40px;
+    position: absolute;
+    animation: balloonFloat 5s linear infinite;
+    cursor: pointer;
 }
 
-@keyframes floatBalloon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-40px); }
+@keyframes balloonFloat { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
+
+.surprise-btn {
+    background: #ff6b81;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
 }
+
+.hidden { display: none; }
 
 /* Floating hearts */
 .heart {
@@ -120,30 +145,6 @@ h1 {
 .confetti:nth-child(8) { left: 60%; background: #1dd1a1; animation-duration: 5s; }
 .confetti:nth-child(9) { left: 80%; background: #5f27cd; animation-duration: 7s; }
 .confetti:nth-child(10){ left: 50%; background: #ff9ff3; animation-duration: 6s; }
-
-/* Gift box */
-.gift-box {
-    margin-top: 30px;
-    display: inline-block;
-    background: #ff6b81;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    animation: pulse 2s infinite;
-}
-
-.gift-box.opened {
-    background: #1dd1a1;
-    animation: none;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 10px #fff; }
-    50% { transform: scale(1.1); box-shadow: 0 0 20px #fff; }
-    100% { transform: scale(1); box-shadow: 0 0 10px #fff; }
-}
 
 /* Mobile responsive */
 @media (max-width: 600px) {
