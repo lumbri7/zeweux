@@ -1,31 +1,31 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #ffdde1, #ee9ca7);
+    background: radial-gradient(circle at top, #ffdde1, #f8a5c2);
     font-family: 'Comic Sans MS', cursive;
     overflow-x: hidden;
 }
 
 .container {
     text-align: center;
-    padding: 50px;
+    padding: 20px;
     color: white;
     position: relative;
     z-index: 1;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff6b81, 0 0 30px #ff6b81; }
-    to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4757, 0 0 40px #ff4757; }
+    from { text-shadow: 0 0 15px #fff, 0 0 25px #ff6b81; }
+    to { text-shadow: 0 0 30px #fff, 0 0 45px #ff4757; }
 }
 
-p {
-    font-size: 1.5rem;
+.msg {
+    font-size: 1.3rem;
     margin-top: 10px;
     animation: fadeIn 3s ease-in-out;
 }
@@ -35,17 +35,51 @@ p {
     to { opacity: 1; }
 }
 
-.teddy {
-    width: 180px;
-    margin-top: 30px;
-    animation: bounce 3s infinite;
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
+
+.teddy, .rose, .balloon, .cake {
+    width: 110px;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+.teddy:hover, .rose:hover, .balloon:hover, .cake:hover {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.teddy { animation: bounce 3s infinite; }
+.rose { animation: sway 4s infinite; }
+.balloon { animation: floatBalloon 5s infinite ease-in-out; }
+.cake { animation: shake 4s infinite; }
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
 
+@keyframes sway {
+    0%, 100% { transform: rotate(0); }
+    50% { transform: rotate(-8deg); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-6deg); }
+    75% { transform: rotate(6deg); }
+}
+
+@keyframes floatBalloon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-40px); }
+}
+
+/* Floating hearts */
 .heart {
     position: absolute;
     width: 30px;
@@ -60,9 +94,60 @@ p {
     100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
-/* Multiple hearts with different timings */
 .heart:nth-child(1) { left: 10%; animation-duration: 7s; }
 .heart:nth-child(2) { left: 30%; animation-duration: 5s; }
 .heart:nth-child(3) { left: 50%; animation-duration: 6s; }
 .heart:nth-child(4) { left: 70%; animation-duration: 8s; }
 .heart:nth-child(5) { left: 90%; animation-duration: 6s; }
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    animation: confettiFall 5s infinite;
+    opacity: 0.7;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.confetti:nth-child(6) { left: 20%; background: #ff6b81; animation-duration: 4s; }
+.confetti:nth-child(7) { left: 40%; background: #feca57; animation-duration: 6s; }
+.confetti:nth-child(8) { left: 60%; background: #1dd1a1; animation-duration: 5s; }
+.confetti:nth-child(9) { left: 80%; background: #5f27cd; animation-duration: 7s; }
+.confetti:nth-child(10){ left: 50%; background: #ff9ff3; animation-duration: 6s; }
+
+/* Gift box */
+.gift-box {
+    margin-top: 30px;
+    display: inline-block;
+    background: #ff6b81;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.gift-box.opened {
+    background: #1dd1a1;
+    animation: none;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px #fff; }
+    50% { transform: scale(1.1); box-shadow: 0 0 20px #fff; }
+    100% { transform: scale(1); box-shadow: 0 0 10px #fff; }
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    h1 { font-size: 2.3rem; }
+    .msg { font-size: 1rem; }
+    .teddy, .rose, .balloon, .cake { width: 85px; }
+}
