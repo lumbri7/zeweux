@@ -3,91 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surprise 🎉</title>
+<title>Zeweux - Coming Soon</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Landing Page -->
-<div class="landing" id="landingPage">
-    <button class="click-btn" onclick="openSurprise()">Click Here</button>
-</div>
-
-<!-- Surprise Page -->
-<div class="surprise hidden" id="surprisePage">
-    <h1 class="birthday-title">💝 Happy Birthday Tanu 💝</h1>
-    <div class="flowers"></div>
-    <div class="hearts"></div>
-
-    <div class="button-zone">
-        <button class="surprise-btn" onclick="openGift()">🎁 Open Gift</button>
-        <button class="surprise-btn" onclick="showMessage()">🌹 Special Message</button>
-        <button class="surprise-btn" onclick="playMusic()">🎶 Play Song</button>
-        <button class="surprise-btn" onclick="magicEffect()">✨ Magic Effect</button>
-        <button class="surprise-btn" onclick="showArt()">🎨 Show Art</button>
+<div class="container">
+    <h1 class="brand-name">ZEWEUX</h1>
+    <p class="tagline">A Premium Fashion Experience</p>
+    <h2 class="coming-soon">✨ Coming Soon ✨</h2>
+    
+    <div class="info">
+        <p>📧 contact@zeweux.com</p>
+        <p>📸 Instagram: <a href="https://instagram.com/lumbri_nitin" target="_blank">@lumbri_nitin</a></p>
+        <p class="partner">🤝 Currently looking for a partner</p>
     </div>
-
-    <div id="popup" class="popup hidden"></div>
+    
+    <div class="animation">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
 </div>
-
-<script>
-function openSurprise() {
-    document.getElementById('landingPage').classList.add('hidden');
-    document.getElementById('surprisePage').classList.remove('hidden');
-
-    // Flowers animation
-    for (let i = 0; i < 20; i++) {
-        let flower = document.createElement('img');
-        flower.src = "https://cdn-icons-png.flaticon.com/512/616/616408.png";
-        flower.className = "flower-fall";
-        flower.style.left = Math.random() * 100 + "%";
-        flower.style.animationDuration = (3 + Math.random() * 3) + "s";
-        document.querySelector('.flowers').appendChild(flower);
-    }
-
-    // Hearts animation
-    for (let i = 0; i < 15; i++) {
-        let heart = document.createElement('img');
-        heart.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
-        heart.className = "heart-float";
-        heart.style.left = Math.random() * 100 + "%";
-        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-        document.querySelector('.hearts').appendChild(heart);
-    }
-}
-
-function openGift() {
-    showPopup("🎁 Here's a sparkling gift just for you!");
-}
-function showMessage() {
-    showPopup("🌹 You’re an amazing friend who brings joy everywhere!");
-}
-function playMusic() {
-    let audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
-    audio.play();
-    showPopup("🎶 Playing a sweet birthday tune...");
-}
-function magicEffect() {
-    showPopup("✨ A shower of magic just for you!");
-    for (let i = 0; i < 20; i++) {
-        let star = document.createElement('div');
-        star.className = 'magic-star';
-        star.style.left = Math.random() * 100 + "%";
-        document.body.appendChild(star);
-        setTimeout(() => star.remove(), 2000);
-    }
-}
-function showArt() {
-    showPopup("🎨 A colorful surprise just for you!");
-}
-
-function showPopup(msg) {
-    const popup = document.getElementById('popup');
-    popup.innerText = msg;
-    popup.classList.remove('hidden');
-    setTimeout(() => popup.classList.add('hidden'), 3000);
-}
-</script>
 
 </body>
 </html>
