@@ -1,10 +1,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: radial-gradient(circle at top, #ffdde1, #f8a5c2);
     font-family: 'Comic Sans MS', cursive;
-    overflow-x: hidden;
+    background: white;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .hidden { display: none; }
@@ -16,9 +16,8 @@ body {
     align-items: center;
     height: 100vh;
 }
-
-.open-btn {
-    font-size: 1.5rem;
+.click-btn {
+    font-size: 2rem;
     padding: 15px 30px;
     background: #ff6b81;
     color: white;
@@ -28,131 +27,81 @@ body {
     animation: pulse 2s infinite;
 }
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 10px #fff; }
-    50% { transform: scale(1.1); box-shadow: 0 0 20px #fff; }
-    100% { transform: scale(1); box-shadow: 0 0 10px #fff; }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 /* Surprise Page */
-h1 {
+.birthday-text {
     font-size: 3rem;
-    color: white;
-    animation: glow 2s ease-in-out infinite alternate;
+    color: #ff4757;
+    margin-top: 50px;
+    animation: glow 2s infinite alternate;
 }
 @keyframes glow {
-    from { text-shadow: 0 0 15px #fff, 0 0 25px #ff6b81; }
-    to { text-shadow: 0 0 30px #fff, 0 0 45px #ff4757; }
+    from { text-shadow: 0 0 20px #ff6b81; }
+    to { text-shadow: 0 0 40px #ff4757; }
 }
-.msg {
-    font-size: 1.3rem;
-    color: white;
-    animation: fadeIn 3s ease-in-out;
+
+/* Flowers Falling */
+.flower-fall {
+    position: absolute;
+    top: -50px;
+    width: 40px;
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Sparkle Hearts */
+.sparkle-text {
+    margin-top: 50px;
+    font-size: 2rem;
+    color: #e84393;
+    animation: fadeIn 3s;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.images {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-.teddy, .rose, .balloon, .cake {
-    width: 110px;
-    margin: 10px;
-    transition: transform 0.5s;
-}
-.teddy:hover, .rose:hover, .balloon:hover, .cake:hover {
-    transform: scale(1.15) rotate(5deg);
-}
-.teddy { animation: bounce 3s infinite; }
-.rose { animation: sway 4s infinite; }
-.balloon { animation: floatB 5s infinite ease-in-out; }
-.cake { animation: shake 4s infinite; }
-
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-@keyframes sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-8deg); } }
-@keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
-@keyframes floatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
-
-/* Fun Zone */
-.fun-zone {
-    background: #fff0f5;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.cake-container img {
-    width: 120px;
-    cursor: pointer;
-    transition: transform 0.5s;
-}
-.cake-container img.cut { transform: rotate(-10deg) scale(0.9); }
-
-.balloon-game { margin-top: 15px; }
-
-#balloonArea img.floatBalloon {
-    width: 40px;
+.heart-float {
     position: absolute;
-    animation: balloonFloat 5s linear infinite;
-    cursor: pointer;
-}
-@keyframes balloonFloat { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
-
-.surprise-btn {
-    background: #ff6b81;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-.hidden { display: none; }
-
-/* Hearts */
-.heart {
-    position: absolute;
+    bottom: -50px;
     width: 30px;
-    height: 30px;
-    background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
-    animation: float 6s infinite;
-    opacity: 0.8;
+    animation-name: heartUp;
+    animation-timing-function: ease-in;
 }
-@keyframes float {
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0.8; }
-    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+@keyframes heartUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
 }
-.heart:nth-child(1) { left: 10%; animation-duration: 7s; }
-.heart:nth-child(2) { left: 30%; animation-duration: 5s; }
-.heart:nth-child(3) { left: 50%; animation-duration: 6s; }
-.heart:nth-child(4) { left: 70%; animation-duration: 8s; }
-.heart:nth-child(5) { left: 90%; animation-duration: 6s; }
 
-/* Confetti */
-.confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    animation: confettiFall 5s infinite;
-    opacity: 0.7;
+/* Multiple Buttons */
+.button-zone {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
-@keyframes confettiFall {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(100vh) rotate(360deg); }
+.surprise-btn {
+    background: #ff9f43;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    animation: pulse 2s infinite;
 }
-.confetti:nth-child(6) { left: 20%; background: #ff6b81; animation-duration: 4s; }
-.confetti:nth-child(7) { left: 40%; background: #feca57; animation-duration: 6s; }
-.confetti:nth-child(8) { left: 60%; background: #1dd1a1; animation-duration: 5s; }
-.confetti:nth-child(9) { left: 80%; background: #5f27cd; animation-duration: 7s; }
-.confetti:nth-child(10){ left: 50%; background: #ff9ff3; animation-duration: 6s; }
+.surprise-btn:hover {
+    background: #e58e26;
+}
 
-/* Mobile */
+/* Responsive */
 @media (max-width: 600px) {
-    h1 { font-size: 2.3rem; }
-    .msg { font-size: 1rem; }
-    .teddy, .rose, .balloon, .cake { width: 85px; }
+    .birthday-text { font-size: 2rem; }
+    .surprise-btn { font-size: 1rem; padding: 10px 15px; }
 }
