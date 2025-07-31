@@ -6,6 +6,23 @@
   <title>Hi, Tanu</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+<script>
+  const frames = document.querySelectorAll('.photo-gallery .frame');
+  let current = 0;
+
+  function showFrame() {
+    frames.forEach((frame, i) => {
+      frame.classList.remove('active');
+      if (i === current) {
+        frame.classList.add('active');
+      }
+    });
+    current = (current + 1) % frames.length;
+  }
+
+  showFrame();
+  setInterval(showFrame, 2500); // har 2.5 sec me next image
+</script>
 <body>
   <!-- Landing Section -->
   <div id="landing" class="section landing">
