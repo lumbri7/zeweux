@@ -19,11 +19,28 @@
         <img src="https://pngimg.com/uploads/balloon/balloon_PNG4962.png" class="balloon" alt="Balloon">
         <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" class="cake" alt="Cake">
     </div>
+</div>
 
-    <!-- Gift box -->
-    <div class="gift-box" onclick="openGift()">
-        🎁 Tap to open
+<!-- Celebration Fun Zone -->
+<div class="fun-zone">
+    <h2>🎉 Let's Celebrate 🎉</h2>
+
+    <!-- Cake Cutting -->
+    <div class="cake-container" onclick="cutCake()">
+        <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" alt="Cake" class="cake-cut">
+        <p id="cakeMsg">Tap to cut the cake 🎂</p>
     </div>
+
+    <!-- Balloon Pop Game -->
+    <div class="balloon-game">
+        <p>🎈 Pop the balloons! Score: <span id="score">0</span></p>
+        <button onclick="startGame()">Start Game</button>
+        <div id="balloonArea"></div>
+    </div>
+
+    <!-- Surprise Button -->
+    <button class="surprise-btn" onclick="showSurprise()">🎁 Open Surprise</button>
+    <div id="surpriseMsg" class="hidden">🌟 You make every moment magical! 🌟</div>
 </div>
 
 <!-- Floating elements -->
@@ -40,9 +57,31 @@
 <div class="confetti"></div>
 
 <script>
-function openGift() {
-    document.querySelector('.gift-box').innerHTML = "🎉 Surprise! You're the most special person today! 🌟";
-    document.querySelector('.gift-box').classList.add('opened');
+function cutCake() {
+    document.querySelector('.cake-cut').classList.add('cut');
+    document.getElementById('cakeMsg').innerText = "🎂 Cake is served!";
+}
+
+let score = 0;
+function startGame() {
+    const area = document.getElementById('balloonArea');
+    area.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        let balloon = document.createElement('img');
+        balloon.src = "https://pngimg.com/uploads/balloon/balloon_PNG4962.png";
+        balloon.className = "floatBalloon";
+        balloon.style.left = Math.random() * 80 + "%";
+        balloon.onclick = function() {
+            this.remove();
+            score++;
+            document.getElementById('score').innerText = score;
+        };
+        area.appendChild(balloon);
+    }
+}
+
+function showSurprise() {
+    document.getElementById('surpriseMsg').classList.remove('hidden');
 }
 </script>
 
