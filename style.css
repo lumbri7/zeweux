@@ -1,136 +1,95 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Comic Sans MS', cursive;
-    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ff9ff3, #feca57, #48dbfb, #1dd1a1);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
     text-align: center;
+    overflow: hidden;
 }
 
-.hidden { display: none; }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-/* Landing Page */
-.landing {
+.container {
+    position: relative;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: white;
+    z-index: 2;
+    animation: fadeIn 2s ease-in-out;
 }
-.click-btn {
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.brand-name {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-top: -10px;
+    opacity: 0.8;
+}
+
+.coming-soon {
+    margin-top: 20px;
     font-size: 2rem;
-    padding: 15px 30px;
-    background: #ff6b81;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
     animation: pulse 2s infinite;
 }
+
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
 }
 
-/* Surprise Page */
-.surprise {
-    background: linear-gradient(135deg, #ff9ff3, #feca57, #ff6b81);
-    min-height: 100vh;
-    padding: 30px;
-    position: relative;
+.info {
+    margin-top: 30px;
+    font-size: 1rem;
 }
-.birthday-title {
-    font-size: 3rem;
+
+.info a {
     color: white;
-    text-shadow: 0 0 15px #ff6b81;
-    animation: glow 2s infinite alternate;
-}
-@keyframes glow {
-    from { text-shadow: 0 0 20px #ff6b81; }
-    to { text-shadow: 0 0 40px #ff4757; }
+    text-decoration: none;
 }
 
-/* Flowers Falling */
-.flower-fall {
+.partner {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.animation .circle {
     position: absolute;
-    top: -50px;
-    width: 40px;
-    animation-name: fall;
-    animation-timing-function: linear;
-}
-@keyframes fall {
-    0% { transform: translateY(0) rotate(0); }
-    100% { transform: translateY(100vh) rotate(360deg); }
-}
-
-/* Hearts Floating */
-.heart-float {
-    position: absolute;
-    bottom: -50px;
-    width: 30px;
-    animation-name: heartUp;
-    animation-timing-function: ease-in;
-}
-@keyframes heartUp {
-    0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
-    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
-}
-
-/* Buttons */
-.button-zone {
-    margin-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-.surprise-btn {
-    background: #ff4757;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    animation: pulse 2s infinite;
-}
-.surprise-btn:hover {
-    background: #e84393;
-}
-
-/* Popup */
-.popup {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 15px 20px;
-    border-radius: 8px;
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
-    color: #e84393;
-    box-shadow: 0 0 10px #ff6b81;
-    animation: fadeIn 0.5s;
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* Magic Stars */
-.magic-star {
-    position: absolute;
-    top: 0;
-    width: 15px;
-    height: 15px;
-    background: gold;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    animation: starFall 2s linear forwards;
-}
-@keyframes starFall {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
+    animation: ripple 6s linear infinite;
 }
 
-/* Responsive */
+.animation .circle:nth-child(1) { width: 200px; height: 200px; animation-delay: 0s; }
+.animation .circle:nth-child(2) { width: 300px; height: 300px; animation-delay: 2s; }
+.animation .circle:nth-child(3) { width: 400px; height: 400px; animation-delay: 4s; }
+
+@keyframes ripple {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
 @media (max-width: 600px) {
-    .birthday-title { font-size: 2rem; }
-    .surprise-btn { font-size: 1rem; padding: 10px 15px; }
+    .brand-name { font-size: 2.5rem; }
+    .coming-soon { font-size: 1.5rem; }
 }
