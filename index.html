@@ -3,91 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome 🎁</title>
+<title>Surprise 🎉</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- Landing Page -->
 <div class="landing" id="landingPage">
-    <button class="open-btn" onclick="showSurprise()">✨ Open Surprise ✨</button>
+    <button class="click-btn" onclick="startSurprise()">Click Here</button>
 </div>
 
 <!-- Surprise Page -->
 <div class="surprise hidden" id="surprisePage">
-    <h1>💝 Happy Birthday Tanu 💝</h1>
-    <p class="msg">✨ Wishing you endless happiness, warm hugs, and a magical day! 🎂🌹</p>
-    
-    <div class="images">
-        <img src="https://pngimg.com/uploads/teddy_bear/teddy_bear_PNG61.png" class="teddy" alt="Teddy">
-        <img src="https://pngimg.com/uploads/rose/rose_PNG66657.png" class="rose" alt="Rose">
-        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4962.png" class="balloon" alt="Balloon">
-        <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" class="cake" alt="Cake">
+    <!-- Step 1: Birthday Text with Falling Flowers -->
+    <h1 class="birthday-text">🎉 Happy Birthday Tanu 🎉</h1>
+    <div class="flowers"></div>
+
+    <!-- Step 2: Sparkle + Hearts -->
+    <div class="sparkle hidden" id="sparkle">
+        <p class="sparkle-text">🌸 You’re truly special 🌸</p>
+        <div class="hearts"></div>
     </div>
 
-    <div class="fun-zone">
-        <h2>🎉 Let's Celebrate 🎉</h2>
-
-        <div class="cake-container" onclick="cutCake()">
-            <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" alt="Cake" class="cake-cut">
-            <p id="cakeMsg">Tap to cut the cake 🎂</p>
-        </div>
-
-        <div class="balloon-game">
-            <p>🎈 Pop the balloons! Score: <span id="score">0</span></p>
-            <button onclick="startGame()">Start Game</button>
-            <div id="balloonArea"></div>
-        </div>
-
-        <button class="surprise-btn" onclick="showMessage()">🎁 Open Gift</button>
-        <div id="specialMsg" class="hidden">🌟 You make every moment magical! 🌟</div>
+    <!-- Step 3: Multiple Buttons -->
+    <div class="button-zone hidden" id="buttonZone">
+        <button class="surprise-btn">🎁 Open Gift</button>
+        <button class="surprise-btn">🌹 Special Message</button>
+        <button class="surprise-btn">🎶 Play Song</button>
+        <button class="surprise-btn">✨ Magic Effect</button>
+        <button class="surprise-btn">🎨 Show Art</button>
     </div>
 </div>
 
-<!-- Floating hearts & confetti -->
-<div class="heart"></div>
-<div class="heart"></div>
-<div class="heart"></div>
-<div class="heart"></div>
-<div class="heart"></div>
-
-<div class="confetti"></div>
-<div class="confetti"></div>
-<div class="confetti"></div>
-<div class="confetti"></div>
-<div class="confetti"></div>
-
 <script>
-function showSurprise() {
+function startSurprise() {
     document.getElementById('landingPage').classList.add('hidden');
     document.getElementById('surprisePage').classList.remove('hidden');
-}
 
-function cutCake() {
-    document.querySelector('.cake-cut').classList.add('cut');
-    document.getElementById('cakeMsg').innerText = "🎂 Cake is served!";
-}
-
-let score = 0;
-function startGame() {
-    const area = document.getElementById('balloonArea');
-    area.innerHTML = '';
-    for (let i = 0; i < 5; i++) {
-        let balloon = document.createElement('img');
-        balloon.src = "https://pngimg.com/uploads/balloon/balloon_PNG4962.png";
-        balloon.className = "floatBalloon";
-        balloon.style.left = Math.random() * 80 + "%";
-        balloon.onclick = function() {
-            this.remove();
-            score++;
-            document.getElementById('score').innerText = score;
-        };
-        area.appendChild(balloon);
+    // Step 1: Show flowers animation
+    for (let i = 0; i < 20; i++) {
+        let flower = document.createElement('img');
+        flower.src = "https://cdn-icons-png.flaticon.com/512/616/616408.png";
+        flower.className = "flower-fall";
+        flower.style.left = Math.random() * 100 + "%";
+        flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+        document.querySelector('.flowers').appendChild(flower);
     }
-}
 
-function showMessage() {
-    document.getElementById('specialMsg').classList.remove('hidden');
+    // Step 2: After 4s show sparkle
+    setTimeout(() => {
+        document.getElementById('sparkle').classList.remove('hidden');
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement('img');
+            heart.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
+            heart.className = "heart-float";
+            heart.style.left = Math.random() * 100 + "%";
+            heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+            document.querySelector('.hearts').appendChild(heart);
+        }
+    }, 4000);
+
+    // Step 3: After 8s show buttons
+    setTimeout(() => {
+        document.getElementById('buttonZone').classList.remove('hidden');
+    }, 8000);
 }
 </script>
 
