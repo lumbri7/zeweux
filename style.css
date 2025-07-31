@@ -2,9 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', cursive;
-    background: white;
-    text-align: center;
     overflow-x: hidden;
+    text-align: center;
 }
 
 .hidden { display: none; }
@@ -15,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: white;
 }
 .click-btn {
     font-size: 2rem;
@@ -33,10 +33,16 @@ body {
 }
 
 /* Surprise Page */
-.birthday-text {
+.surprise {
+    background: linear-gradient(135deg, #ff9ff3, #feca57, #ff6b81);
+    min-height: 100vh;
+    padding: 30px;
+    position: relative;
+}
+.birthday-title {
     font-size: 3rem;
-    color: #ff4757;
-    margin-top: 50px;
+    color: white;
+    text-shadow: 0 0 15px #ff6b81;
     animation: glow 2s infinite alternate;
 }
 @keyframes glow {
@@ -57,15 +63,7 @@ body {
     100% { transform: translateY(100vh) rotate(360deg); }
 }
 
-/* Sparkle Hearts */
-.sparkle-text {
-    margin-top: 50px;
-    font-size: 2rem;
-    color: #e84393;
-    animation: fadeIn 3s;
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
+/* Hearts Floating */
 .heart-float {
     position: absolute;
     bottom: -50px;
@@ -78,7 +76,7 @@ body {
     100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
 }
 
-/* Multiple Buttons */
+/* Buttons */
 .button-zone {
     margin-top: 80px;
     display: flex;
@@ -87,7 +85,7 @@ body {
     gap: 15px;
 }
 .surprise-btn {
-    background: #ff9f43;
+    background: #ff4757;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -97,11 +95,42 @@ body {
     animation: pulse 2s infinite;
 }
 .surprise-btn:hover {
-    background: #e58e26;
+    background: #e84393;
+}
+
+/* Popup */
+.popup {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 8px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: #e84393;
+    box-shadow: 0 0 10px #ff6b81;
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Magic Stars */
+.magic-star {
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background: gold;
+    border-radius: 50%;
+    animation: starFall 2s linear forwards;
+}
+@keyframes starFall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-    .birthday-text { font-size: 2rem; }
+    .birthday-title { font-size: 2rem; }
     .surprise-btn { font-size: 1rem; padding: 10px 15px; }
 }
