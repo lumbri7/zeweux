@@ -1,46 +1,48 @@
-/* Common */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   text-align: center;
   color: #fff;
+  overflow-x: hidden;
 }
-
-/* Landing Page */
-.landing {
-  background: linear-gradient(45deg, #ff758c, #ff7eb3);
+.section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: opacity 1s ease;
 }
-.landing-container h1 {
-  font-size: 2.5rem;
+.hidden {
+  display: none;
+}
+
+/* Landing */
+.landing {
+  background: linear-gradient(45deg, #ff758c, #ff7eb3);
 }
 .romantic-text {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin: 10px 0;
 }
 .btn {
-  display: inline-block;
   background: #fff;
   color: #ff4e8e;
-  padding: 10px 20px;
-  font-weight: bold;
+  padding: 12px 24px;
   border-radius: 20px;
-  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
   transition: transform 0.3s;
 }
 .btn:hover {
   transform: scale(1.1);
 }
 
-/* Wishes Page */
+/* Wishes */
 .wishes {
   background: linear-gradient(to bottom, #ff6a88, #ff99ac);
-  min-height: 100vh;
-  padding: 20px;
-  overflow: hidden;
+  position: relative;
 }
 .animated-title {
   font-size: 3rem;
@@ -51,23 +53,9 @@ body {
   to { text-shadow: 0 0 20px #fff, 0 0 40px red; }
 }
 .wish-text {
-  margin: 15px 0;
+  margin: 15px;
   font-size: 1.3rem;
 }
-
-/* Balloons */
-.balloons::before, .balloons::after {
-  content: "🎈 🎉 🎈 🎉 🎈";
-  position: absolute;
-  font-size: 2rem;
-  animation: float 5s linear infinite;
-}
-@keyframes float {
-  0% { top: 100%; }
-  100% { top: -100%; }
-}
-
-/* Photo Gallery */
 .photo-gallery {
   display: flex;
   justify-content: center;
@@ -115,6 +103,30 @@ body {
   50% { background: orange; }
 }
 .cut-cake {
-  margin-top: 10px;
   font-size: 1.2rem;
+}
+
+/* Balloons */
+.balloons::before, .balloons::after {
+  content: "🎈 🎉 🎈 🎉 🎈";
+  position: absolute;
+  font-size: 2rem;
+  animation: float 5s linear infinite;
+  left: 20px;
+}
+.balloons::after {
+  left: auto;
+  right: 20px;
+}
+@keyframes float {
+  0% { top: 100%; }
+  100% { top: -100%; }
+}
+
+/* Confetti */
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
