@@ -12,6 +12,7 @@ body {
   align-items: center;
   height: 100vh;
   transition: opacity 1s ease;
+  padding: 10px;
 }
 .hidden {
   display: none;
@@ -22,7 +23,7 @@ body {
   background: linear-gradient(45deg, #ff758c, #ff7eb3);
 }
 .romantic-text {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 10px 0;
 }
 .btn {
@@ -34,18 +35,20 @@ body {
   border: none;
   cursor: pointer;
   transition: transform 0.3s;
+  font-size: 1rem;
 }
 .btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Wishes */
 .wishes {
   background: linear-gradient(to bottom, #ff6a88, #ff99ac);
   position: relative;
+  padding-bottom: 40px;
 }
 .animated-title {
-  font-size: 3rem;
+  font-size: 2rem;
   animation: glow 1.5s infinite alternate;
 }
 @keyframes glow {
@@ -53,20 +56,24 @@ body {
   to { text-shadow: 0 0 20px #fff, 0 0 40px red; }
 }
 .wish-text {
-  margin: 15px;
-  font-size: 1.3rem;
+  margin: 10px;
+  font-size: 1rem;
+  max-width: 90%;
 }
 .photo-gallery {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
 }
 .photo-frame {
-  width: 120px;
-  height: 120px;
-  border: 5px solid #fff;
-  border-radius: 15px;
+  width: 28vw;
+  max-width: 120px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 4px solid #fff;
+  border-radius: 10px;
   animation: bounce 2s infinite;
 }
 @keyframes bounce {
@@ -76,26 +83,26 @@ body {
 
 /* Cake */
 .cake {
-  width: 100px;
-  height: 60px;
+  width: 80px;
+  height: 50px;
   background: #ffdab9;
   border-radius: 0 0 10px 10px;
-  margin: 30px auto;
+  margin: 20px auto;
   position: relative;
 }
 .cake-top {
-  width: 100px;
+  width: 80px;
   height: 20px;
   background: #ff7f50;
   border-radius: 10px 10px 0 0;
 }
 .candle {
   width: 5px;
-  height: 20px;
+  height: 18px;
   background: yellow;
   position: absolute;
-  top: -20px;
-  left: 48px;
+  top: -18px;
+  left: 38px;
   animation: flicker 1s infinite;
 }
 @keyframes flicker {
@@ -103,20 +110,20 @@ body {
   50% { background: orange; }
 }
 .cut-cake {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 /* Balloons */
 .balloons::before, .balloons::after {
   content: "🎈 🎉 🎈 🎉 🎈";
   position: absolute;
-  font-size: 2rem;
+  font-size: 1.5rem;
   animation: float 5s linear infinite;
-  left: 20px;
+  left: 10px;
 }
 .balloons::after {
   left: auto;
-  right: 20px;
+  right: 10px;
 }
 @keyframes float {
   0% { top: 100%; }
@@ -129,4 +136,11 @@ body {
   top: 0;
   left: 0;
   pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .animated-title { font-size: 1.8rem; }
+  .wish-text { font-size: 0.9rem; }
+  .btn { font-size: 0.9rem; padding: 10px 20px; }
 }
