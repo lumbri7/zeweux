@@ -7,67 +7,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Landing Page -->
-  <div id="landing" class="landing">
-    <h1>🎉 Happy Birthday Surprise 🎉</h1>
-    <button onclick="startCelebration()">Click Here</button>
+  <div class="landing">
+    <h1>🎉 Surprise 🎉</h1>
+    <p>Special Birthday Wishes for Tanu ❤️</p>
+    <button onclick="window.location.href='wishes.html'">Click Here</button>
   </div>
-
-  <!-- Wishes Page -->
-  <div id="wishes" class="hidden">
-    <audio id="guitar" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-    
-    <h1 class="birthday-title">🎂 Happy Birthday Tanu 🎂</h1>
-    <p class="wish-text">Wishing you lots of love, joy, and endless happiness on your special day! 💖</p>
-    
-    <!-- Balloons -->
-    <div class="balloons">
-      <div class="balloon"></div>
-      <div class="balloon"></div>
-      <div class="balloon"></div>
-      <div class="balloon"></div>
-    </div>
-
-    <!-- Cake -->
-    <div class="cake">
-      <div class="layer"></div>
-      <div class="layer"></div>
-      <div class="layer"></div>
-      <div class="candle"></div>
-    </div>
-
-    <!-- Slideshow Gallery -->
-    <div class="photo-gallery">
-      <div class="frame frame1"><img src="IMG_0111.jpeg" alt="Tanu" /></div>
-      <div class="frame frame2"><img src="IMG_0112.jpeg" alt="Tanu" /></div>
-      <div class="frame frame3"><img src="IMG_0107.png" alt="Tanu" /></div>
-      <div class="frame frame4"><img src="IMG_0106.png" alt="Tanu" /></div>
-      <div class="frame frame5"><img src="IMG_0105.png" alt="Tanu" /></div>
-    </div>
-  </div>
-
-  <script>
-    function startCelebration() {
-      document.getElementById("landing").style.display = "none";
-      document.getElementById("wishes").classList.remove("hidden");
-      document.getElementById("guitar").play();
-    }
-
-    const frames = document.querySelectorAll('.photo-gallery .frame');
-    let current = 0;
-
-    function showFrame() {
-      frames.forEach((frame, i) => {
-        frame.classList.remove('active');
-        if (i === current) {
-          frame.classList.add('active');
-        }
-      });
-      current = (current + 1) % frames.length;
-    }
-
-    setInterval(showFrame, 2500);
-    window.onload = showFrame;
-  </script>
 </body>
 </html>
