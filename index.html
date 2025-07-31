@@ -9,17 +9,42 @@
 <body>
 
 <div class="container">
-    <h1>🎂 Happy Birthday Tanu 🎂</h1>
-    <p>💖 Wishing you a day filled with love, joy, and lots of teddy hugs! 💖</p>
-    <img src="https://pngimg.com/uploads/teddy_bear/teddy_bear_PNG61.png" class="teddy" alt="Teddy Bear">
+    <h1>💝 Happy Birthday Tanu 💝</h1>
+    <p class="msg">✨ On your special day, wishing you endless happiness, warm hugs, and moments as beautiful as you! 🎂🌹</p>
+    
+    <!-- Images -->
+    <div class="images">
+        <img src="https://pngimg.com/uploads/teddy_bear/teddy_bear_PNG61.png" class="teddy" alt="Teddy Bear">
+        <img src="https://pngimg.com/uploads/rose/rose_PNG66657.png" class="rose" alt="Rose">
+        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4962.png" class="balloon" alt="Balloon">
+        <img src="https://pngimg.com/uploads/birthday_cake/birthday_cake_PNG26.png" class="cake" alt="Cake">
+    </div>
+
+    <!-- Gift box -->
+    <div class="gift-box" onclick="openGift()">
+        🎁 Tap to open
+    </div>
 </div>
 
-<!-- Floating hearts -->
+<!-- Floating elements -->
 <div class="heart"></div>
 <div class="heart"></div>
 <div class="heart"></div>
 <div class="heart"></div>
 <div class="heart"></div>
+
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+
+<script>
+function openGift() {
+    document.querySelector('.gift-box').innerHTML = "🎉 Surprise! You're the most special person today! 🌟";
+    document.querySelector('.gift-box').classList.add('opened');
+}
+</script>
 
 </body>
 </html>
