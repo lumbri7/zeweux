@@ -1,95 +1,120 @@
+/* Common */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg, #ff9ff3, #feca57, #48dbfb, #1dd1a1);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
-    color: white;
-    text-align: center;
-    overflow: hidden;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  color: #fff;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Landing Page */
+.landing {
+  background: linear-gradient(45deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.landing-container h1 {
+  font-size: 2.5rem;
+}
+.romantic-text {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+.btn {
+  display: inline-block;
+  background: #fff;
+  color: #ff4e8e;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+.btn:hover {
+  transform: scale(1.1);
 }
 
-.container {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    animation: fadeIn 2s ease-in-out;
+/* Wishes Page */
+.wishes {
+  background: linear-gradient(to bottom, #ff6a88, #ff99ac);
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+}
+.animated-title {
+  font-size: 3rem;
+  animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff, 0 0 20px pink; }
+  to { text-shadow: 0 0 20px #fff, 0 0 40px red; }
+}
+.wish-text {
+  margin: 15px 0;
+  font-size: 1.3rem;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Balloons */
+.balloons::before, .balloons::after {
+  content: "🎈 🎉 🎈 🎉 🎈";
+  position: absolute;
+  font-size: 2rem;
+  animation: float 5s linear infinite;
+}
+@keyframes float {
+  0% { top: 100%; }
+  100% { top: -100%; }
 }
 
-.brand-name {
-    font-size: 4rem;
-    font-weight: bold;
-    letter-spacing: 5px;
-    text-shadow: 0 0 20px rgba(255,255,255,0.7);
+/* Photo Gallery */
+.photo-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.photo-frame {
+  width: 120px;
+  height: 120px;
+  border: 5px solid #fff;
+  border-radius: 15px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.tagline {
-    font-size: 1.2rem;
-    margin-top: -10px;
-    opacity: 0.8;
+/* Cake */
+.cake {
+  width: 100px;
+  height: 60px;
+  background: #ffdab9;
+  border-radius: 0 0 10px 10px;
+  margin: 30px auto;
+  position: relative;
 }
-
-.coming-soon {
-    margin-top: 20px;
-    font-size: 2rem;
-    animation: pulse 2s infinite;
+.cake-top {
+  width: 100px;
+  height: 20px;
+  background: #ff7f50;
+  border-radius: 10px 10px 0 0;
 }
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
+.candle {
+  width: 5px;
+  height: 20px;
+  background: yellow;
+  position: absolute;
+  top: -20px;
+  left: 48px;
+  animation: flicker 1s infinite;
 }
-
-.info {
-    margin-top: 30px;
-    font-size: 1rem;
+@keyframes flicker {
+  0%, 100% { background: yellow; }
+  50% { background: orange; }
 }
-
-.info a {
-    color: white;
-    text-decoration: none;
-}
-
-.partner {
-    margin-top: 10px;
-    font-style: italic;
-    font-size: 1.1rem;
-}
-
-.animation .circle {
-    position: absolute;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    animation: ripple 6s linear infinite;
-}
-
-.animation .circle:nth-child(1) { width: 200px; height: 200px; animation-delay: 0s; }
-.animation .circle:nth-child(2) { width: 300px; height: 300px; animation-delay: 2s; }
-.animation .circle:nth-child(3) { width: 400px; height: 400px; animation-delay: 4s; }
-
-@keyframes ripple {
-    0% { transform: scale(0.5); opacity: 1; }
-    100% { transform: scale(2); opacity: 0; }
-}
-
-@media (max-width: 600px) {
-    .brand-name { font-size: 2.5rem; }
-    .coming-soon { font-size: 1.5rem; }
+.cut-cake {
+  margin-top: 10px;
+  font-size: 1.2rem;
 }
