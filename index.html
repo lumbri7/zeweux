@@ -10,37 +10,32 @@
 
 <!-- Landing Page -->
 <div class="landing" id="landingPage">
-    <button class="click-btn" onclick="startSurprise()">Click Here</button>
+    <button class="click-btn" onclick="openSurprise()">Click Here</button>
 </div>
 
 <!-- Surprise Page -->
 <div class="surprise hidden" id="surprisePage">
-    <!-- Step 1: Birthday Text with Falling Flowers -->
-    <h1 class="birthday-text">🎉 Happy Birthday Tanu 🎉</h1>
+    <h1 class="birthday-title">💝 Happy Birthday Tanu 💝</h1>
     <div class="flowers"></div>
+    <div class="hearts"></div>
 
-    <!-- Step 2: Sparkle + Hearts -->
-    <div class="sparkle hidden" id="sparkle">
-        <p class="sparkle-text">🌸 You’re truly special 🌸</p>
-        <div class="hearts"></div>
+    <div class="button-zone">
+        <button class="surprise-btn" onclick="openGift()">🎁 Open Gift</button>
+        <button class="surprise-btn" onclick="showMessage()">🌹 Special Message</button>
+        <button class="surprise-btn" onclick="playMusic()">🎶 Play Song</button>
+        <button class="surprise-btn" onclick="magicEffect()">✨ Magic Effect</button>
+        <button class="surprise-btn" onclick="showArt()">🎨 Show Art</button>
     </div>
 
-    <!-- Step 3: Multiple Buttons -->
-    <div class="button-zone hidden" id="buttonZone">
-        <button class="surprise-btn">🎁 Open Gift</button>
-        <button class="surprise-btn">🌹 Special Message</button>
-        <button class="surprise-btn">🎶 Play Song</button>
-        <button class="surprise-btn">✨ Magic Effect</button>
-        <button class="surprise-btn">🎨 Show Art</button>
-    </div>
+    <div id="popup" class="popup hidden"></div>
 </div>
 
 <script>
-function startSurprise() {
+function openSurprise() {
     document.getElementById('landingPage').classList.add('hidden');
     document.getElementById('surprisePage').classList.remove('hidden');
 
-    // Step 1: Show flowers animation
+    // Flowers animation
     for (let i = 0; i < 20; i++) {
         let flower = document.createElement('img');
         flower.src = "https://cdn-icons-png.flaticon.com/512/616/616408.png";
@@ -50,23 +45,47 @@ function startSurprise() {
         document.querySelector('.flowers').appendChild(flower);
     }
 
-    // Step 2: After 4s show sparkle
-    setTimeout(() => {
-        document.getElementById('sparkle').classList.remove('hidden');
-        for (let i = 0; i < 15; i++) {
-            let heart = document.createElement('img');
-            heart.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
-            heart.className = "heart-float";
-            heart.style.left = Math.random() * 100 + "%";
-            heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-            document.querySelector('.hearts').appendChild(heart);
-        }
-    }, 4000);
+    // Hearts animation
+    for (let i = 0; i < 15; i++) {
+        let heart = document.createElement('img');
+        heart.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
+        heart.className = "heart-float";
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+        document.querySelector('.hearts').appendChild(heart);
+    }
+}
 
-    // Step 3: After 8s show buttons
-    setTimeout(() => {
-        document.getElementById('buttonZone').classList.remove('hidden');
-    }, 8000);
+function openGift() {
+    showPopup("🎁 Here's a sparkling gift just for you!");
+}
+function showMessage() {
+    showPopup("🌹 You’re an amazing friend who brings joy everywhere!");
+}
+function playMusic() {
+    let audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+    audio.play();
+    showPopup("🎶 Playing a sweet birthday tune...");
+}
+function magicEffect() {
+    showPopup("✨ A shower of magic just for you!");
+    for (let i = 0; i < 20; i++) {
+        let star = document.createElement('div');
+        star.className = 'magic-star';
+        star.style.left = Math.random() * 100 + "%";
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 2000);
+    }
+}
+function showArt() {
+    showPopup("🎨 A colorful surprise just for you!");
+}
+
+function showPopup(msg) {
+    const popup = document.getElementById('popup');
+    popup.innerText = msg;
+    popup.classList.remove('hidden');
+    setTimeout(() => popup.classList.add('hidden'), 3000);
 }
 </script>
 
