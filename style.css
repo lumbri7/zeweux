@@ -6,72 +6,48 @@ body {
   overflow-x: hidden;
 }
 
-/* Landing Page */
-.landing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(120deg, #ffb6c1, #ff69b4);
-}
-.landing button {
-  padding: 15px 25px;
-  background: white;
-  color: #ff69b4;
-  font-size: 20px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  animation: pulse 1.5s infinite;
-}
-.landing button:hover {
-  background: #ffe4e1;
-}
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-/* Page transition */
-.page-transition {
-  animation: fadeOut 1.5s forwards;
-}
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-/* Wishes Page */
+/* Wishes Page Theme */
 .wish-page {
-  background: radial-gradient(circle, #ffdde1, #ee9ca7);
+  background: linear-gradient(to bottom, #a1c4fd, #fbc2eb);
   animation: fadeIn 2s ease;
-  position: relative;
 }
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* Top Section */
+.top-section {
+  padding: 20px;
+}
 .animated-text {
-  margin-top: 30px;
-  font-size: 35px;
+  margin-top: 20px;
+  font-size: 32px;
   animation: bounce 2s infinite;
-  text-shadow: 0 0 15px #fff;
+  text-shadow: 0 0 10px #fff;
 }
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
 }
-.message {
+
+/* Messages */
+.message-container p {
+  background: rgba(255, 255, 255, 0.3);
+  color: #ff69b4;
+  padding: 10px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 15px;
   font-size: 18px;
-  margin: 10px;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* Carousel Circle */
 .carousel {
   width: 100%;
-  height: 400px;
+  height: 350px;
   perspective: 1000px;
   margin-top: 30px;
   display: flex;
@@ -79,73 +55,105 @@ body {
   align-items: center;
 }
 .carousel-inner {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   position: relative;
   transform-style: preserve-3d;
   animation: rotateCircle 30s linear infinite;
 }
 .carousel-inner img {
   position: absolute;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid white;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 4px solid pink;
+  background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.carousel-inner img:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
-.carousel-inner img:nth-child(2) { transform: rotateY(45deg) translateZ(200px); }
-.carousel-inner img:nth-child(3) { transform: rotateY(90deg) translateZ(200px); }
-.carousel-inner img:nth-child(4) { transform: rotateY(135deg) translateZ(200px); }
-.carousel-inner img:nth-child(5) { transform: rotateY(180deg) translateZ(200px); }
-.carousel-inner img:nth-child(6) { transform: rotateY(225deg) translateZ(200px); }
-.carousel-inner img:nth-child(7) { transform: rotateY(270deg) translateZ(200px); }
-.carousel-inner img:nth-child(8) { transform: rotateY(315deg) translateZ(200px); }
-
+.carousel-inner img:nth-child(1) { transform: rotateY(0deg) translateZ(180px); }
+.carousel-inner img:nth-child(2) { transform: rotateY(45deg) translateZ(180px); }
+.carousel-inner img:nth-child(3) { transform: rotateY(90deg) translateZ(180px); }
+.carousel-inner img:nth-child(4) { transform: rotateY(135deg) translateZ(180px); }
+.carousel-inner img:nth-child(5) { transform: rotateY(180deg) translateZ(180px); }
+.carousel-inner img:nth-child(6) { transform: rotateY(225deg) translateZ(180px); }
+.carousel-inner img:nth-child(7) { transform: rotateY(270deg) translateZ(180px); }
+.carousel-inner img:nth-child(8) { transform: rotateY(315deg) translateZ(180px); }
 @keyframes rotateCircle {
   from { transform: rotateY(0deg); }
   to { transform: rotateY(360deg); }
 }
 
-@keyframes fadeSlide {
-  0% { opacity: 0; transform: scale(0.9); }
-  5% { opacity: 1; transform: scale(1); }
-  20% { opacity: 1; transform: scale(1.05); }
-  25% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 0; }
-}
-
 /* Cake */
 .cake {
-  font-size: 80px;
+  font-size: 70px;
   animation: float 2s infinite;
   margin-top: 20px;
 }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Falling Flowers */
-.flowers::before,
-.flowers::after {
-  content: '🌸🌺💐🌹🌷';
+.flowers::before {
+  content: '🌸';
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: -10%;
   left: 0;
   font-size: 25px;
   pointer-events: none;
-  animation: fall 10s linear infinite;
-  white-space: nowrap;
+  animation: fall 5s linear infinite;
 }
-.flowers::after {
-  animation-delay: 5s;
+@keyframes fall {
+  0% { transform: translateY(-100px) translateX(0); opacity: 1; }
+  100% { transform: translateY(100vh) translateX(30px); opacity: 0; }
 }
 
-@keyframes fall {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
+/* Bottom Section */
+.bottom-section {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px 20px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.bottom-section h2 {
+  color: #ff69b4;
+  text-shadow: 0 0 10px #fff;
+}
+.balloons span {
+  font-size: 40px;
+  margin: 10px;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+.balloons span:active {
+  transform: scale(0);
+}
+.cake-msg {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.cake-emoji {
+  font-size: 80px;
+  animation: float 2s infinite;
+  margin-top: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .carousel-inner img {
+    width: 80px;
+    height: 80px;
+  }
+  .message-container p {
+    font-size: 16px;
+  }
+  .animated-text {
+    font-size: 28px;
+  }
 }
