@@ -149,7 +149,7 @@ button:hover {
 
 /* Flowers */
 .flowers::before {
-  content: '🌸';
+  content: '🌸,🎈';
   position: fixed;
   width: 100%;
   height: 100%;
