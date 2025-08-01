@@ -149,7 +149,7 @@ button:hover {
 
 /* Flowers */
 .flowers::before {
-  content: '🌸,🎈';
+  content: '🌸';
   position: fixed;
   width: 100%;
   height: 100%;
@@ -157,7 +157,7 @@ button:hover {
   left: 0;
   font-size: 25px;
   pointer-events: none;
-  animation: fall 2s linear infinite;
+  animation: fall 5s linear infinite;
 }
 @keyframes fall {
   0% { transform: translateY(-100px) translateX(0); opacity: 1; }
