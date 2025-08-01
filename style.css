@@ -4,6 +4,7 @@ body {
   color: white;
   text-align: center;
   overflow-x: hidden;
+  min-height: 100vh;
   background: linear-gradient(to bottom, #a1c4fd, #fbc2eb);
 }
 
@@ -58,27 +59,18 @@ button:hover {
 }
 
 /* Fairy Lights */
-.fairy-lights {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
+.fairy-lights::before {
+  content: "✨✨✨✨✨✨✨✨✨✨";
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  animation: twinkle 2s infinite;
 }
-.fairy-lights span {
-  width: 12px;
-  height: 12px;
-  background: yellow;
-  border-radius: 50%;
-  box-shadow: 0 0 10px yellow;
-  animation: twinkle 1.5s infinite alternate;
-}
-.fairy-lights span:nth-child(2) { animation-delay: 0.3s; }
-.fairy-lights span:nth-child(3) { animation-delay: 0.6s; }
-.fairy-lights span:nth-child(4) { animation-delay: 0.9s; }
-.fairy-lights span:nth-child(5) { animation-delay: 1.2s; }
 @keyframes twinkle {
-  from { opacity: 0.3; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1.2); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 /* Title */
@@ -86,7 +78,7 @@ button:hover {
   padding: 20px;
 }
 .animated-text {
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 40px;
   font-family: 'Brush Script MT', cursive;
   animation: shimmer 3s infinite;
@@ -113,6 +105,7 @@ button:hover {
 .message-container p:nth-child(1) { animation-delay: 0.5s; }
 .message-container p:nth-child(2) { animation-delay: 1.5s; }
 .message-container p:nth-child(3) { animation-delay: 2.5s; }
+.message-container p:nth-child(4) { animation-delay: 3.5s; }
 @keyframes fadeWish {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -159,28 +152,7 @@ button:hover {
   to { transform: rotateY(360deg); }
 }
 
-/* Floating Balloons and Hearts */
-.float-emoji {
-  position: absolute;
-  animation: floatUp 6s linear infinite;
-  font-size: 28px;
-  opacity: 0.9;
-}
-@keyframes floatUp {
-  0% { transform: translateY(100vh) scale(1); opacity: 1; }
-  100% { transform: translateY(-20px) scale(1.2); opacity: 0; }
-}
-
-/* Confetti */
-#confetti {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 998;
-}
-
-/* Celebration Section */
+/* Bottom Section */
 .bottom-section {
   background: rgba(255, 255, 255, 0.15);
   padding: 30px 20px;
@@ -200,26 +172,46 @@ button:hover {
 }
 .cake-msg {
   color: #fff;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 20px;
   font-family: 'Dancing Script', cursive;
 }
 .cake-emoji {
-  font-size: 140px; /* Bigger cake */
+  font-size: 120px;
   animation: float 2s infinite;
   margin-top: 10px;
 }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-/* Music button */
+/* Floating Emojis */
+.float-emoji {
+  position: fixed;
+  animation: floatUp 9s linear infinite;
+  font-size: 24px;
+  opacity: 0.8;
+}
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(1); opacity: 1; }
+  100% { transform: translateY(-20px) scale(1.2); opacity: 0; }
+}
+
+/* Music Button */
 .play-btn {
-  background: #fff;
-  color: #ff69b4;
-  padding: 10px 20px;
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #ff69b4;
   border: none;
+  color: white;
+  padding: 10px 20px;
   border-radius: 20px;
-  margin-top: 10px;
   font-size: 16px;
   cursor: pointer;
+  z-index: 999;
 }
 
 /* Mobile */
