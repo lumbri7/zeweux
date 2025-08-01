@@ -7,20 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="wish-page">
-  <!-- Birthday Music -->
-  <audio id="birthday-audio" autoplay muted loop>
+  <audio autoplay loop>
     <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_52db77db47.mp3" type="audio/mpeg">
   </audio>
-  <button id="music-btn" class="music-button">🎶 Play Music</button>
 
   <section class="top-section">
-    <h1 class="animated-text">🎂 Happy Birthday, Tanu 🎂</h1>
+    <h1 class="animated-text">🎂 Happy Birthday Tanu 🎂</h1>
 
     <div class="message-container">
-      <p>💖 Your smile lights up every room like sunshine.</p>
-      <p>🌸 May this year bring endless happiness and adventures.</p>
-      <p>✨ You deserve the world and everything beautiful in it.</p>
-      <p>🎉 Cheers to another amazing year of laughter and love.</p>
+      <p>💖Wishing you a birthday as beautiful as your smile💖</p>
+      <p>🎀“Dear Tanu, you deserve the best things in life – love, joy, and endless adventures. Thank you for being such a caring, wonderful friend. Have the most magical birthday ever!”🎀</p>
+      <p>🎉Thank you for being such a wonderful friend🎉</p>
     </div>
 
     <div class="carousel">
@@ -35,13 +32,13 @@
         <img src="photo8.jpeg" />
       </div>
     </div>
-
+    
     <div class="cake">🎂</div>
     <div class="flowers"></div>
   </section>
 
   <section class="bottom-section">
-    <h2>🎈 Let’s Celebrate 🎈</h2>
+    <h2>🎈 Let's Celebrate 🎈</h2>
     <div class="balloons">
       <span>🎈</span>
       <span>🎈</span>
@@ -52,27 +49,5 @@
     <p class="cake-msg">Here’s a sweet cake just for you 🍰</p>
     <div class="cake-emoji">🎂</div>
   </section>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const audio = document.getElementById('birthday-audio');
-      const btn = document.getElementById('music-btn');
-
-      // Try to unmute and play automatically
-      audio.muted = false;
-      audio.play().then(() => {
-        btn.style.display = 'none'; // hide button if autoplay works
-      }).catch(() => {
-        btn.style.display = 'inline-block'; // show button if blocked
-      });
-
-      // Button click fallback
-      btn.addEventListener('click', () => {
-        audio.muted = false;
-        audio.play();
-        btn.style.display = 'none';
-      });
-    });
-  </script>
 </body>
 </html>
