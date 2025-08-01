@@ -7,23 +7,18 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="wish-page">
-  <!-- Music -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_52db77db47.mp3" type="audio/mpeg">
-  </audio>
-  <button class="play-btn" onclick="playMusic()">▶️ Play Music</button>
-
-  <!-- Sparkling Lights -->
-  <div class="fairy-lights"></div>
+  <!-- Fairy Lights -->
+  <div class="fairy-lights">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 
   <section class="top-section">
     <h1 class="animated-text">🎂 Happy Birthday Tanu 🎂</h1>
 
     <div class="message-container">
-      <p>💖 Wishing you a birthday as beautiful as your smile.</p>
-      <p>🎀 Dear Tanu, you deserve the best things in life – love, joy, and endless adventures.</p>
-      <p>✨ Thank you for being such a caring, wonderful friend.</p>
-      <p>🎉 May this year bring you endless happiness and laughter.</p>
+      <p>💖 Wishing you a birthday as beautiful as your smile 💖</p>
+      <p>🎀 Dear Tanu, you deserve the best things in life – love, joy, and endless adventures. Thank you for being such a caring, wonderful friend. Have the most magical birthday ever! 🎀</p>
+      <p>🎉 Thank you for being such a wonderful friend 🎉</p>
     </div>
 
     <div class="carousel">
@@ -38,43 +33,74 @@
         <img src="photo8.jpeg" />
       </div>
     </div>
+    
+    <div class="cake">🎂</div>
+    <canvas id="confetti"></canvas>
   </section>
 
   <section class="bottom-section">
     <h2>🎈 Let's Celebrate 🎈</h2>
     <div class="balloons">
-      <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+      <span>🎈</span>
+      <span>🎈</span>
+      <span>🎈</span>
+      <span>🎈</span>
+      <span>🎈</span>
     </div>
     <p class="cake-msg">Here’s a sweet cake just for you 🍰</p>
     <div class="cake-emoji">🎂</div>
   </section>
 
   <script>
-    // Floating emojis
-    const emojis = ['🎈', '❤️', '💖', '⭐', '🎉'];
-    setInterval(() => {
-      if (document.querySelectorAll('.float-emoji').length < 10) {
-        const el = document.createElement('div');
-        el.className = 'float-emoji';
-        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        el.style.left = Math.random() * window.innerWidth + 'px';
-        el.style.animationDuration = (7 + Math.random() * 3) + 's';
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 10000);
-      }
-    }, 700);
-
-    // Music
-    const music = document.getElementById('bg-music');
-    window.addEventListener('load', () => {
-      music.play().catch(() => {
-        document.querySelector('.play-btn').style.display = 'inline-block';
-      });
-    });
-    function playMusic() {
-      music.play();
-      document.querySelector('.play-btn').style.display = 'none';
+    // Falling multiple items
+    const items = ['🌸', '🎈', '❤️', '⭐', '🎊'];
+    function createFallingItem() {
+      const el = document.createElement('div');
+      el.classList.add('fall-item');
+      el.textContent = items[Math.floor(Math.random() * items.length)];
+      el.style.left = Math.random() * window.innerWidth + 'px';
+      el.style.animationDuration = (3 + Math.random() * 3) + 's';
+      el.style.fontSize = (20 + Math.random() * 20) + 'px';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 6000);
     }
+    setInterval(createFallingItem, 300);
+
+    // Confetti (party popper effect)
+    const confettiCanvas = document.getElementById('confetti');
+    const ctx = confettiCanvas.getContext('2d');
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+
+    const confettiPieces = Array.from({length: 150}, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight - window.innerHeight,
+      w: 5,
+      h: 10,
+      color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+      speed: 2 + Math.random() * 3,
+      rotation: Math.random() * 360
+    }));
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      confettiPieces.forEach(p => {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.restore();
+        p.y += p.speed;
+        p.rotation += 5;
+        if (p.y > window.innerHeight) {
+          p.y = -10;
+          p.x = Math.random() * window.innerWidth;
+        }
+      });
+      requestAnimationFrame(drawConfetti);
+    }
+    drawConfetti();
   </script>
 </body>
 </html>
