@@ -22,30 +22,33 @@ body {
 }
 .animated-text {
   margin-top: 20px;
-  font-size: 32px;
+  font-size: 36px;
+  font-family: 'Brush Script MT', cursive;
   animation: bounce 2s infinite;
-  text-shadow: 0 0 10px #fff;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
 }
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
 
-/* Messages */
+/* Romantic Messages */
 .message-container p {
-  color: #fff;
-  font-size: 20px;
-  margin: 10px auto;
+  color: #ff69b4;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  margin: 15px auto;
   width: 90%;
   max-width: 500px;
   font-weight: 500;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }
 
-/* Carousel Circle */
+/* Carousel Circle - perfectly centered */
 .carousel {
   width: 100%;
-  height: 420px;
+  height: 450px;
   perspective: 1200px;
   margin-top: 30px;
   display: flex;
@@ -53,33 +56,37 @@ body {
   align-items: center;
 }
 .carousel-inner {
-  width: 300px;
-  height: 420px; /* 5:7 ratio */
+  width: 320px;
+  height: 448px; /* 5:7 ratio */
   position: relative;
   transform-style: preserve-3d;
   animation: rotateCircle 35s linear infinite;
+  margin: 0 auto; /* Center aligned */
 }
 .carousel-inner img {
   position: absolute;
-  width: 150px;
-  height: 210px; /* 5:7 ratio */
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 224px; /* 5:7 ratio */
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 5px solid pink;
   background: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
 }
-.carousel-inner img:nth-child(1) { transform: rotateY(0deg) translateZ(220px); }
-.carousel-inner img:nth-child(2) { transform: rotateY(45deg) translateZ(220px); }
-.carousel-inner img:nth-child(3) { transform: rotateY(90deg) translateZ(220px); }
-.carousel-inner img:nth-child(4) { transform: rotateY(135deg) translateZ(220px); }
-.carousel-inner img:nth-child(5) { transform: rotateY(180deg) translateZ(220px); }
-.carousel-inner img:nth-child(6) { transform: rotateY(225deg) translateZ(220px); }
-.carousel-inner img:nth-child(7) { transform: rotateY(270deg) translateZ(220px); }
-.carousel-inner img:nth-child(8) { transform: rotateY(315deg) translateZ(220px); }
+.carousel-inner img:nth-child(1) { transform: rotateY(0deg) translateZ(230px); }
+.carousel-inner img:nth-child(2) { transform: rotateY(45deg) translateZ(230px); }
+.carousel-inner img:nth-child(3) { transform: rotateY(90deg) translateZ(230px); }
+.carousel-inner img:nth-child(4) { transform: rotateY(135deg) translateZ(230px); }
+.carousel-inner img:nth-child(5) { transform: rotateY(180deg) translateZ(230px); }
+.carousel-inner img:nth-child(6) { transform: rotateY(225deg) translateZ(230px); }
+.carousel-inner img:nth-child(7) { transform: rotateY(270deg) translateZ(230px); }
+.carousel-inner img:nth-child(8) { transform: rotateY(315deg) translateZ(230px); }
+
 @keyframes rotateCircle {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
+  from { transform: translateX(0) rotateY(0deg); }
+  to { transform: translateX(0) rotateY(360deg); }
 }
 
 /* Cake */
@@ -140,17 +147,17 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
   .carousel-inner {
-    width: 240px;
-    height: 336px;
+    width: 260px;
+    height: 364px;
   }
   .carousel-inner img {
-    width: 120px;
-    height: 168px;
+    width: 130px;
+    height: 182px;
   }
   .message-container p {
-    font-size: 18px;
+    font-size: 20px;
   }
   .animated-text {
-    font-size: 26px;
+    font-size: 30px;
   }
 }
