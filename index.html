@@ -3,21 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday</title>
+  <title>Happy Birthday Tanu</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="landing">
-    <button onclick="startAnimation()">💌 Click Here 💌</button>
+    <div class="content-center">
+      <h1>🎉 Surprise 🎉</h1>
+      <p>Special Birthday Wishes for Tanu ❤️</p>
+      <button onclick="window.location.href='wishes.html'">Click Here</button>
+    </div>
   </div>
-
-  <script>
-    function startAnimation() {
-      document.body.classList.add('page-transition');
-      setTimeout(() => {
-        window.location.href = 'wishes.html';
-      }, 1500); // 1.5s transition before opening wishes page
-    }
-  </script>
 </body>
 </html>
