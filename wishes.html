@@ -33,8 +33,12 @@
         <img src="photo8.jpeg" />
       </div>
     </div>
-    
-    <div class="cake">🎂</div>
+
+    <button class="play-btn" onclick="playMusic()">🔊 Play Music</button>
+    <audio id="bg-music" loop>
+      <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_52db77db47.mp3" type="audio/mpeg">
+    </audio>
+
     <canvas id="confetti"></canvas>
   </section>
 
@@ -52,27 +56,25 @@
   </section>
 
   <script>
-    // Falling multiple items
-    const items = ['🌸', '🎈', '❤️', '⭐', '🎊'];
-    function createFallingItem() {
+    // Floating emojis (hearts, stars, balloons)
+    const emojis = ['🎈', '❤️', '💖', '⭐', '🎉'];
+    setInterval(() => {
       const el = document.createElement('div');
-      el.classList.add('fall-item');
-      el.textContent = items[Math.floor(Math.random() * items.length)];
+      el.className = 'float-emoji';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
       el.style.left = Math.random() * window.innerWidth + 'px';
-      el.style.animationDuration = (3 + Math.random() * 3) + 's';
-      el.style.fontSize = (20 + Math.random() * 20) + 'px';
+      el.style.animationDuration = (5 + Math.random() * 3) + 's';
       document.body.appendChild(el);
-      setTimeout(() => el.remove(), 6000);
-    }
-    setInterval(createFallingItem, 300);
+      setTimeout(() => el.remove(), 8000);
+    }, 400);
 
-    // Confetti (party popper effect)
-    const confettiCanvas = document.getElementById('confetti');
-    const ctx = confettiCanvas.getContext('2d');
-    confettiCanvas.width = window.innerWidth;
-    confettiCanvas.height = window.innerHeight;
+    // Confetti animation
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    const confettiPieces = Array.from({length: 150}, () => ({
+    const confetti = Array.from({ length: 150 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight - window.innerHeight,
       w: 5,
@@ -83,13 +85,13 @@
     }));
 
     function drawConfetti() {
-      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-      confettiPieces.forEach(p => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach(p => {
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate((p.rotation * Math.PI) / 180);
         ctx.fillStyle = p.color;
-        ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
         ctx.restore();
         p.y += p.speed;
         p.rotation += 5;
@@ -101,6 +103,11 @@
       requestAnimationFrame(drawConfetti);
     }
     drawConfetti();
+
+    // Music control
+    function playMusic() {
+      document.getElementById('bg-music').play();
+    }
   </script>
 </body>
 </html>
