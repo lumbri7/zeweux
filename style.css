@@ -7,71 +7,102 @@
 }
 
 body {
-  background: linear-gradient(135deg, #ff8a00, #e52e71);
-  color: white;
+  background: #ffffff;
+  color: #333;
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
+  padding: 20px;
 }
 
 .container {
-  max-width: 600px;
-  padding: 20px;
+  max-width: 700px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 1.2s ease-out;
 }
 
 .logo {
   font-size: 3rem;
   font-weight: 600;
-  animation: fadeInDown 1.2s ease-out;
+  color: #000;
+  animation: fadeInDown 1s ease-out;
 }
 
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 20px;
+  color: #555;
   animation: fadeIn 1.5s ease-in-out;
 }
 
-.message p {
+.info p {
   font-size: 1rem;
-  margin: 10px 0;
+  margin: 12px 0;
+  line-height: 1.6;
   animation: fadeIn 2s ease-in-out;
 }
 
 .partner p {
-  margin-top: 20px;
-  font-weight: 600;
+  margin-top: 25px;
   font-size: 1.1rem;
+  font-weight: 500;
+  background: #f9f9f9;
+  padding: 15px;
+  border-left: 4px solid #000;
+  border-radius: 5px;
   animation: pulse 2s infinite;
 }
 
+.contact {
+  margin-top: 30px;
+}
+
+.contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
 .contact p {
-  margin-top: 15px;
-  animation: fadeIn 2.5s ease-in-out;
+  margin: 5px 0;
 }
 
 .contact a {
-  color: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact a:hover {
   text-decoration: underline;
 }
 
 .highlight {
-  color: yellow;
+  color: #e52e71;
+}
+
+.footer-message {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  color: #666;
 }
 
 .animation {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 .dot {
   width: 12px;
   height: 12px;
   margin: 0 5px;
-  background-color: white;
+  background-color: #000;
   border-radius: 50%;
   animation: bounce 1.5s infinite;
 }
@@ -90,6 +121,11 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -101,6 +137,6 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { color: yellow; }
-  50% { color: white; }
+  0%, 100% { border-left-color: #000; }
+  50% { border-left-color: #e52e71; }
 }
