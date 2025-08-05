@@ -30,9 +30,8 @@ body {
 .logo {
   font-size: 3.5rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #111;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .tagline {
@@ -86,7 +85,6 @@ body {
   color: #444;
 }
 
-/* Minimal Animations */
 .animate-fade {
   opacity: 0;
   transform: translateY(10px);
