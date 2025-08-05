@@ -13,31 +13,26 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
 }
 
 .wrapper {
   width: 100%;
-  max-width: 800px;
-  background: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  max-width: 700px;
   text-align: center;
 }
 
 .logo {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #111;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .tagline {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #555;
-  margin-bottom: 25px;
+  margin: 15px 0 25px;
 }
 
 .info p {
@@ -48,16 +43,10 @@ body {
 
 .partner {
   margin: 30px 0;
-  background: #fef7f9;
+  background: #fafafa;
   padding: 20px;
-  border: 1px solid #ff8a00;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.partner:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px rgba(229, 46, 113, 0.15);
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 .contact {
@@ -72,7 +61,6 @@ body {
 .contact a {
   color: #e52e71;
   text-decoration: none;
-  font-weight: 500;
 }
 
 .contact a:hover {
@@ -83,19 +71,6 @@ body {
   margin-top: 25px;
   font-size: 1rem;
   color: #444;
-}
-
-.animate-fade {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeIn 1.5s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .highlight {
