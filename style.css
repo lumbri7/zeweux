@@ -10,11 +10,7 @@ body {
   background: #ffffff;
   font-family: 'Montserrat', sans-serif;
   color: #222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
+  padding: 20px; /* Removed flex centering to allow scrolling */
 }
 
 .wrapper {
@@ -25,6 +21,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   text-align: center;
+  margin: auto; /* Keeps it centered horizontally */
 }
 
 .logo {
@@ -32,6 +29,12 @@ body {
   font-weight: 700;
   color: #111;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
+
+  position: sticky; /* Makes it stick to top */
+  top: 0;
+  background: white; /* Match page background */
+  padding: 15px 0;
+  z-index: 1000;
 }
 
 .tagline {
